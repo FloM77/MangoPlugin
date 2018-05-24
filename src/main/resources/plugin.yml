@@ -1,4 +1,4 @@
 name: MangoPlugin
 version: 1.0
-main: AT.MSev.Bukkit.Main
+main: AT.MSev.Mango.Main
 author: Mango Msev

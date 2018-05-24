@@ -28,16 +28,12 @@ public class CustomItemBase {
 
     public void Rename(String newName)
     {
-        ItemMeta meta = Physical.getItemMeta();
-        meta.setDisplayName(newName);
-        Physical.setItemMeta(meta);
+        MangoUtils.ItemRename(Physical, newName);
     }
 
-    public void SetLore(ArrayList<String> lore)
+    public void SetLore(ArrayList<String> newLore)
     {
-        ItemMeta meta = Physical.getItemMeta();
-        meta.setLore(lore);
-        Physical.setItemMeta(meta);
+        MangoUtils.ItemRelore(Physical, newLore);
     }
 
     public void SetTag(String key, NBTBase nbt)
@@ -66,7 +62,7 @@ public class CustomItemBase {
                 return eb;
             }
         }
-        return new CustomItemBase("Undefined", Material.EGG) {{ Rename("Undefined E");}};
+        return null;
     }
 
     public static boolean CompareWithItem(CustomItemBase ebase, ItemStack item)

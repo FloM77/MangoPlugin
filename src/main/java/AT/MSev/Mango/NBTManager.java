@@ -4,8 +4,12 @@ import com.sun.org.apache.xpath.internal.operations.Bool;
 import net.minecraft.server.v1_12_R1.NBTBase;
 import net.minecraft.server.v1_12_R1.NBTTagCompound;
 import net.minecraft.server.v1_12_R1.NBTTagString;
+import org.bukkit.craftbukkit.v1_12_R1.CraftWorld;
+import org.bukkit.craftbukkit.v1_12_R1.block.CraftBlock;
+import org.bukkit.craftbukkit.v1_12_R1.block.CraftStructureBlock;
 import org.bukkit.craftbukkit.v1_12_R1.inventory.CraftItemStack;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.Location;
 
 import static org.bukkit.Bukkit.getLogger;
 
@@ -27,7 +31,7 @@ public class NBTManager {
     public static Boolean CompareTag(ItemStack item, String key, NBTBase compareTo)
     {
         if(HasTags(item) && HasKey(item, key)) {
-            return GetItemNms(item).get(key).equals(compareTo);
+            return GetTag(item, key).equals(compareTo);
         }
         return false;
     }

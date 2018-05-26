@@ -46,10 +46,12 @@ public class CustomItemBase {
         Physical = NBTManager.RemoveItemNBT(Physical, key);
     }
 
-    public void Give(Player p)
+    public void Give(Player p, Boolean stackable)
     {
+        if(!stackable){
         int randomID = random.nextInt(Integer.MAX_VALUE);
         SetTag("Unstackable", new NBTTagInt(randomID));
+        }
         p.getInventory().addItem(Physical);
     }
 

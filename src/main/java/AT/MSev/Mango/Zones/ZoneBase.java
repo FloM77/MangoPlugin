@@ -6,14 +6,18 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 
-public class ZoneBase implements Listener {
-    ZoneSetting Setting;
+import java.util.ArrayList;
+
+public class ZoneBase {
+
+    public ZoneSetting Setting;
+    public static ArrayList<ZoneBase> All = new ArrayList<ZoneBase>();
 
     public ZoneBase(Location bound1, Location bound2)
     {
         Setting = new ZoneSetting(bound1, bound2);
+        All.add(this);
     }
 
-    @EventHandler(priority = EventPriority.MONITOR)
-    void BreakInZone(BlockBreakEvent e) {}
+    public void BreakInZone(BlockBreakEvent e) {}
 }

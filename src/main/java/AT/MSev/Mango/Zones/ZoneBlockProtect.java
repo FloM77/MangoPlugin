@@ -10,7 +10,7 @@ public class ZoneBlockProtect extends ZoneBase {
     }
 
     @Override
-    void BreakInZone(BlockBreakEvent e) {
+    public void BreakInZone(BlockBreakEvent e) {
         if(Setting.IsIn(e.getBlock().getLocation())) {
             e.setCancelled(true);
         }

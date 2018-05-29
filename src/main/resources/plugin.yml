@@ -2,3 +2,8 @@ name: MangoPlugin
 version: 1.0
 main: AT.MSev.Mango.Main
 author: Mango Msev
+commands:
+    startProtect:
+        description: Starts Block protection Zone
+    endProtect:
+        description: Ends Block protection Zone

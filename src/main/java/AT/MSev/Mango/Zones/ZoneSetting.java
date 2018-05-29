@@ -22,9 +22,9 @@ public class ZoneSetting {
         LocationSet Z = BothZ();
 
         if(
-            location.getX() < X.Greater && location.getX() > X.Lesser &&
-            location.getY() < Y.Greater && location.getY() > Y.Lesser &&
-            location.getZ() < Z.Greater && location.getZ() > Z.Lesser
+            location.getX() <= X.Greater && location.getX() >= X.Lesser &&
+            location.getY() <= Y.Greater && location.getY() >= Y.Lesser &&
+            location.getZ() <= Z.Greater && location.getZ() >= Z.Lesser
             )
         {
             return true;

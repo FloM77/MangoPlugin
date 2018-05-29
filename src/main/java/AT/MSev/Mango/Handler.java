@@ -1,6 +1,7 @@
 package AT.MSev.Mango;
 
 import AT.MSev.Mango.ItemsBlocks.*;
+import AT.MSev.Mango.Zones.ZoneBase;
 import net.minecraft.server.v1_12_R1.NBTTagString;
 import org.bukkit.Material;
 import org.bukkit.craftbukkit.v1_12_R1.inventory.CraftItemStack;
@@ -86,6 +87,14 @@ public class Handler implements Listener {
     @EventHandler
     public void OnBreak(BlockBreakEvent e)
     {
+        for(ZoneBase zb : ZoneBase.All)
+        {
+            if(zb.Setting.IsIn(e.getBlock().getLocation()))
+            {
+                zb.BreakInZone(e);
+            }
+        }
+
         for(CustomBlockBase cbb : CustomBlockBase.Blocks)
         {
             if(e.getBlock().getType().equals(cbb.Physical.getType()))

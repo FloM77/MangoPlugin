@@ -1,5 +1,6 @@
-package AT.MSev.Mango;
+package AT.MSev.Mango.ItemsBlocks;
 
+import AT.MSev.Mango.*;
 import net.minecraft.server.v1_12_R1.NBTTagString;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;

@@ -1,5 +1,6 @@
-package AT.MSev.Mango;
+package AT.MSev.Mango.ItemsBlocks;
 
+import AT.MSev.Mango.*;
 import net.minecraft.server.v1_12_R1.NBTTagString;
 import org.bukkit.Material;
 import org.bukkit.World;
@@ -13,8 +14,9 @@ import java.util.ArrayList;
 import static org.bukkit.Bukkit.getLogger;
 
 public class CustomBlockBase extends CustomItemBase {
-    ArrayList<CustomBlockInstance> Logicals = new ArrayList<CustomBlockInstance>();
-    static ArrayList<CustomBlockBase> Blocks = new ArrayList<CustomBlockBase>();
+    public ArrayList<CustomBlockInstance> Logicals = new ArrayList<CustomBlockInstance>();
+    public static ArrayList<CustomBlockBase> Blocks = new ArrayList<CustomBlockBase>();
+    public Boolean Breakable = true;
 
     public CustomBlockBase(String name, Material appearance)
     {
@@ -24,21 +26,23 @@ public class CustomBlockBase extends CustomItemBase {
         LoadState();
     }
 
-    void PlaceEvent(final BlockPlaceEvent e)
+    public void PlaceEvent(final BlockPlaceEvent e)
     {
         Logicals.add(new CustomBlockInstance(e.getBlockPlaced().getLocation(), e.getPlayer()));
         SaveState();
     }
 
-    void BreakEvent(BlockBreakEvent e, CustomBlockInstance cbi)
+    public void BreakEvent(BlockBreakEvent e, CustomBlockInstance cbi)
     {
         Block b = e.getBlock();
         World w = b.getWorld();
         Logicals.remove(cbi);
         SaveState();
         e.setCancelled(true);
-        w.dropItemNaturally(b.getLocation(), CustomItemBase.Get(Name).Physical);
-        b.setType(Material.AIR);
+        if(Breakable) {
+            b.setType(Material.AIR);
+            w.dropItemNaturally(b.getLocation(), CustomItemBase.Get(Name).Physical);
+        }
 
     }
 

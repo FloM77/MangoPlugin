@@ -1,5 +1,6 @@
-package AT.MSev.Mango;
+package AT.MSev.Mango.ItemsBlocks;
 
+import AT.MSev.Mango.*;
 import net.minecraft.server.v1_12_R1.NBTBase;
 import net.minecraft.server.v1_12_R1.NBTTagInt;
 import net.minecraft.server.v1_12_R1.NBTTagString;

@@ -1,5 +1,6 @@
-package AT.MSev.Mango;
+package AT.MSev.Mango.ItemsBlocks;
 
+import AT.MSev.Mango.*;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Server;
@@ -11,8 +12,8 @@ import java.util.UUID;
 import static org.bukkit.Bukkit.getLogger;
 
 public class CustomBlockInstance {
-    Location Logical;
-    Player Owner;
+    public Location Logical;
+    public Player Owner;
 
     public CustomBlockInstance(Location location, Player player)
     {

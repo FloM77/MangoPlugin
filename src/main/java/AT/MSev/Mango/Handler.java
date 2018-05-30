@@ -24,7 +24,7 @@ public class Handler implements Listener {
     @EventHandler
     public void OnLogin(PlayerJoinEvent e)
     {
-        new CustomBlockBase("BlockTest", Material.DIAMOND_BLOCK).Give(e.getPlayer(), false);
+        new CustomBlockBase("BlockTest", Material.DIAMOND_BLOCK).Give(e.getPlayer(), true);
     }
 
     @EventHandler

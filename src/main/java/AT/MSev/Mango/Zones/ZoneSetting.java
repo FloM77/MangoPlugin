@@ -2,6 +2,8 @@ package AT.MSev.Mango.Zones;
 
 import AT.MSev.Mango.*;
 import org.bukkit.Location;
+import org.bukkit.World;
+
 import javax.tools.DocumentationTool;
 
 
@@ -30,6 +32,36 @@ public class ZoneSetting {
             return true;
         }
         return false;
+    }
+
+    public double ZoneXSize()
+    {
+        return (BothX().Greater - BothX().Lesser);
+    }
+
+    public double ZoneYSize()
+    {
+        return (BothY().Greater - BothY().Lesser);
+    }
+
+    public double ZoneZSize()
+    {
+        return (BothZ().Greater - BothZ().Lesser);
+    }
+
+    public World getWorld()
+    {
+        return Quad1.getWorld();
+    }
+
+    public Location RelLocLesser(double x, double y, double z)
+    {
+        return new Location(getWorld(), BothX().Lesser + x, BothY().Lesser + y, BothZ().Lesser + z);
+    }
+
+    public Location RelLocGreater(double x, double y, double z)
+    {
+        return new Location(getWorld(), BothX().Greater + x, BothY().Greater + y, BothZ().Greater + z);
     }
 
     LocationSet BothX()

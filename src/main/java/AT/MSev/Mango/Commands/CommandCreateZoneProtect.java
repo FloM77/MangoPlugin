@@ -1,6 +1,7 @@
 package AT.MSev.Mango.Commands;
 
 import AT.MSev.Mango.Zones.ZoneBlockProtect;
+import AT.MSev.Mango.Zones.ZoneCloneWorld;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -15,7 +16,8 @@ public class CommandCreateZoneProtect implements CommandExecutor {
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
 
         Player player = ((Player)commandSender);
-        Location PBL = player.getLocation().getBlock().getLocation();
+        Location PBL = player.getLocation();
+        PBL = new Location(PBL.getWorld(), Math.ceil(PBL.getX()), Math.ceil(PBL.getY()), Math.ceil(PBL.getZ()));
         String playerID = player.getUniqueId().toString();
 
         if(command.getName().equals("startProtect"))
@@ -33,7 +35,7 @@ public class CommandCreateZoneProtect implements CommandExecutor {
             {
                 Location bound1 = Stored.get(playerID);
                 Location bound2 = PBL;
-                new ZoneBlockProtect(bound1, bound2, player.getUniqueId().toString(),null);
+                new ZoneCloneWorld(bound1, bound2, player.getUniqueId().toString(),null);
 
                 player.sendMessage("Ended Zone at " + PBL);
             }

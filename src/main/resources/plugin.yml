@@ -7,3 +7,5 @@ commands:
         description: Starts Block protection Zone
     endProtect:
         description: Ends Block protection Zone
+    zone:
+        description: Zone Settings

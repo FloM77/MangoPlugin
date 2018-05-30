@@ -33,7 +33,7 @@ public class CommandCreateZoneProtect implements CommandExecutor {
             {
                 Location bound1 = Stored.get(playerID);
                 Location bound2 = PBL;
-                new ZoneBlockProtect(bound1, bound2);
+                new ZoneBlockProtect(bound1, bound2, player.getUniqueId().toString(),null);
 
                 player.sendMessage("Ended Zone at " + PBL);
             }

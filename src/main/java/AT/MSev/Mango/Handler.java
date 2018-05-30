@@ -91,7 +91,7 @@ public class Handler implements Listener {
         {
             if(zb.Setting.IsIn(e.getBlock().getLocation()))
             {
-                zb.BreakInZone(e);
+                zb.BreakInZoneEvent(e);
             }
         }
 
